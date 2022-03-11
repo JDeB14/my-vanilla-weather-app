@@ -1,1 +1,148 @@
+body {
+  background-image: url("../images+/mainbgphoto.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Josefin Sans", sans-serif;
+}
+form {
+  text-align: center;
+}
 
+p {
+  text-align: center;
+  position: relative;
+  bottom: 20px;
+  color: #11468f;
+  font-size: 20px;
+  font-weight: 600;
+}
+h1,
+h3 {
+  color: #11468f;
+}
+h1 {
+  font-size: 70px;
+  text-align: center;
+  position: relative;
+  bottom: 25px;
+}
+h6,
+li {
+  color: #72147e;
+  font-size: 18px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+#locationButton {
+  background-color: transparent;
+  box-shadow: 2px 2px 10px #423f3e;
+  padding: 4px 8px;
+  border-radius: 10px;
+  border-color: #ffb319;
+  transition: 250ms ease-in-out;
+}
+#locationButton:hover {
+  background-color: #11468f;
+}
+#location-icon {
+  color: wheat;
+  font-size: 18px;
+}
+#time {
+  font-size: 19px;
+  color: wheat;
+  text-align: right;
+}
+#searchButton {
+  background-color: transparent;
+  box-shadow: 3px 3px 5px grey;
+  transition: 250ms ease-in-out;
+}
+#searchButton:hover {
+  background-color: #11468f;
+}
+#clickedDegrees {
+  text-decoration: none;
+  color: #11468f;
+  font-size: 20px;
+  position: relative;
+  bottom: 38px;
+}
+#clickedDegrees:hover {
+  color: #0d6cfd;
+  cursor: pointer;
+}
+.top-half {
+  border: 2px groove wheat;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 3px 3px 5px black;
+}
+.card {
+  margin: 50px auto;
+  max-width: 600px;
+  background: transparent;
+  border: 5px groove #ffb319;
+  border-radius: 10px;
+  box-shadow: 7px 7px 5px black;
+}
+.city-date {
+  margin-top: 30px;
+}
+.sun {
+  text-align: center;
+  font-size: 70px;
+}
+.mph,
+.percent,
+.temp {
+  color: #11468f;
+}
+.forecast {
+  text-align: center;
+  text-decoration: underline 3px;
+  color: #ffb319;
+}
+.day,
+.HL {
+  color: #ffb319;
+  font-size: 20px;
+}
+.emoji {
+  font-size: 40px;
+}
+.future {
+  text-align: center;
+  border: 2px groove wheat;
+  border-radius: 4px;
+  margin-right: 10px;
+  padding: 10px 0;
+  box-shadow: 5px 5px 5px black;
+}
+.future:hover {
+  background-color: rgba(89, 137, 160, 0.3);
+}
+.future-first {
+  text-align: center;
+  border: 2px groove wheat;
+  border-radius: 4px;
+  padding: 10px 0;
+  margin: 0 10px 0 30px;
+  box-shadow: 5px 5px 5px black;
+}
+.future-first:hover {
+  background-color: rgba(89, 137, 160, 0.3);
+}
+.future-last {
+  text-align: center;
+  border: 2px groove wheat;
+  border-radius: 4px;
+  padding: 10px 0;
+  margin-right: 30px;
+  box-shadow: 5px 5px 5px black;
+}
+.future-last:hover {
+  background-color: rgba(89, 137, 160, 0.3);
+}
