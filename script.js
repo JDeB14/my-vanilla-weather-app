@@ -60,8 +60,8 @@ function displayCityWeather(response) {
   let tempMax = Math.round(response.data.main.temp_max);
   document.querySelector("#currentHigh").innerHTML = `${tempMax}°`;
 
-  let tempMin = Math.round(response.data.main.temp_min);
-  document.querySelector("#currentLow").innerHTML = `${tempMin}°`;
+  //let tempMin = Math.round(response.data.main.temp_min);
+  //document.querySelector("#currentLow").innerHTML = `${tempMin}°`;
 
   let humidity = response.data.main.humidity;
   document.querySelector("#humidity-percentage").innerHTML = `${humidity}%`;
