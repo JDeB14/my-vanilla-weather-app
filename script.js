@@ -45,7 +45,6 @@ function search(city) {
 }
 
 function displayCityWeather(response) {
-  console.log(response.data);
   let cityName = response.data.name;
   document.querySelector("#searched-city").innerHTML = cityName;
 
@@ -69,6 +68,31 @@ function displayCityWeather(response) {
 
   let windSpeed = Math.round(response.data.wind.speed);
   document.querySelector("#wind").innerHTML = `${windSpeed} MPH`;
+
+  displayWeatherIcon();
+
+  function displayWeatherIcon() {
+    let icon = document.querySelector(".sun");
+
+    if (weatherDescription == "Clouds") {
+      icon.innerHTML = "⛅️";
+    } else if (weatherDescription == "Clear") {
+      icon.innerHTML = "☀️";
+    } else if (
+      weatherDescription == "Rain" ||
+      weatherDescription == "Drizzle"
+    ) {
+      icon.innerHTML = "🌧";
+    } else if (weatherDescription == "Thunderstorm") {
+      icon.innerHTML = "⛈";
+    } else if (weatherDescription == "Snow") {
+      icon.innerHTML = "🌨";
+    } else if (weatherDescription == "Tornado") {
+      icon.innerHTML = "🌪";
+    } else {
+      icon.innerHTML = "🌫";
+    }
+  }
 }
 
 //Navigator Location Button
