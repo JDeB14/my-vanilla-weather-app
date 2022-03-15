@@ -51,7 +51,7 @@ function displayCityWeather(response) {
   let currentTemp = Math.round(response.data.main.temp);
   document.querySelector("#main-temp").innerHTML = currentTemp;
 
-  let weatherDescription = response.data.weather[0].main;
+  let weatherDescription = "Thunderstorm"; //response.data.weather[0].main;
   document.querySelector("p").innerHTML = weatherDescription;
 
   let feelsLike = Math.round(response.data.main.feels_like);
@@ -97,6 +97,8 @@ function displayCityWeather(response) {
   let percent = document.querySelectorAll(".percent");
   let tempClass = document.querySelectorAll(".temp");
   let mph = document.querySelector(".mph");
+  let h3 = document.querySelector("h3");
+  let h1 = document.querySelector("h1");
 
   function bgImgChange() {
     if (weatherDescription == "Clear") {
@@ -104,6 +106,12 @@ function displayCityWeather(response) {
     } else if (weatherDescription == "Thunderstorm") {
       document.body.style.backgroundImage = "url('../images+/storm1.jpg')";
       audio.setAttribute("src", "../images+/thunderstorm.wav");
+      h6.style.color = "wheat";
+      h3.style.color = "#e3e3e3";
+      h1.style.color = "#e3e3e3";
+      for (var i = 0; i < li.length; i++) {
+        li[i].style.color = "#ffb319";
+      }
     } else if (
       weatherDescription == "Rain" ||
       weatherDescription == "Drizzle"
