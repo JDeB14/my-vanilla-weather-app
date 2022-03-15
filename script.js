@@ -93,6 +93,10 @@ function displayCityWeather(response) {
   }
   let audio = document.querySelector("#audio");
   let h6 = document.querySelector("h6");
+  let li = document.querySelectorAll("li");
+  let percent = document.querySelectorAll(".percent");
+  let tempClass = document.querySelectorAll(".temp");
+  let mph = document.querySelector(".mph");
 
   function bgImgChange() {
     if (weatherDescription == "Clear") {
@@ -107,6 +111,14 @@ function displayCityWeather(response) {
       document.body.style.backgroundImage = "url('../images+/rain.jpg')";
       audio.setAttribute("src", "../images+/rainsound.wav");
       h6.style.color = "wheat";
+      mph.style.color = "#e3e3e3";
+      for (var i = 0; i < li.length; i++) {
+        li[i].style.color = "#ffb319";
+      }
+      for (var i = 0; i < 2; i++) {
+        percent[i].style.color = "#e3e3e3";
+        tempClass[i].style.color = "#e3e3e3";
+      }
     } else if (weatherDescription == "Tornado") {
       document.body.style.backgroundImage = "url('../images+/tornado.jpg')";
       audio.setAttribute("src", "../images+/tornado.wav");
