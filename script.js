@@ -91,19 +91,32 @@ function displayCityWeather(response) {
       icon.innerHTML = "🌫";
     }
   }
+  let audio = document.querySelector("#audio");
+  let h6 = document.querySelector("h6");
 
   function bgImgChange() {
-    if (weatherDescription == "Thunderstorm") {
+    if (weatherDescription == "Clear") {
+      document.body.style.backgroundImage = "url('../images+/mainbgphoto.jpg')";
+    } else if (weatherDescription == "Thunderstorm") {
       document.body.style.backgroundImage = "url('../images+/storm1.jpg')";
-      let audio = document.querySelector("#audio");
       audio.setAttribute("src", "../images+/thunderstorm.wav");
     } else if (
       weatherDescription == "Rain" ||
       weatherDescription == "Drizzle"
     ) {
-      document.body.style.backgroundImage = "url('../images+/storm1.jpg')";
+      document.body.style.backgroundImage = "url('../images+/rain.jpg')";
+      audio.setAttribute("src", "../images+/rainsound.wav");
+      h6.style.color = "wheat";
+    } else if (weatherDescription == "Tornado") {
+      document.body.style.backgroundImage = "url('../images+/tornado.jpg')";
+      audio.setAttribute("src", "../images+/tornado.wav");
     } else if (weatherDescription == "Snow") {
-      document.body.style.backgroundImage = "url('../images+/storm1.jpg')";
+      document.body.style.backgroundImage = "url('../images+/snow2.jpg')";
+      audio.setAttribute("src", "../images+/snowsteps.wav");
+    } else if (weatherDescription == "Clouds") {
+      document.body.style.backgroundImage = "url('../images+/clouds3.jpg')";
+    } else {
+      document.body.style.backgroundImage = "url('../images+/fog.jpg')";
     }
   }
 
