@@ -69,8 +69,6 @@ function displayCityWeather(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   document.querySelector("#wind").innerHTML = `${windSpeed} MPH`;
 
-  displayWeatherIcon();
-
   function displayWeatherIcon() {
     let icon = document.querySelector(".sun");
 
@@ -93,6 +91,24 @@ function displayCityWeather(response) {
       icon.innerHTML = "🌫";
     }
   }
+
+  function bgImgChange() {
+    if (weatherDescription == "Thunderstorm") {
+      document.body.style.backgroundImage = "url('../images+/storm1.jpg')";
+      let audio = document.querySelector("#audio");
+      audio.setAttribute("src", "../images+/thunderstorm.wav");
+    } else if (
+      weatherDescription == "Rain" ||
+      weatherDescription == "Drizzle"
+    ) {
+      document.body.style.backgroundImage = "url('../images+/storm1.jpg')";
+    } else if (weatherDescription == "Snow") {
+      document.body.style.backgroundImage = "url('../images+/storm1.jpg')";
+    }
+  }
+
+  displayWeatherIcon();
+  bgImgChange();
 }
 
 //Navigator Location Button

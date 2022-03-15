@@ -26,6 +26,9 @@
   </head>
   <body>
     <div class="container">
+      <audio autoplay loop id="audio">
+        <source src="../images+/clearsky.wav" type="audio/wav" />
+      </audio>
       <div class="card">
         <div class="card-body">
           <div class="top-half">
@@ -58,13 +61,13 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 city-date">
+              <div class="col-7 city-date">
                 <h3 id="searched-city"></h3>
                 <h6></h6>
               </div>
-              <div class="col-4">
+              <div class="col-5">
                 <div class="sun">☀️</div>
-                <p></p>
+                <p class="description"></p>
               </div>
             </div>
             <h1><span id="main-temp"></span><span id="degrees">°F</span></h1>
