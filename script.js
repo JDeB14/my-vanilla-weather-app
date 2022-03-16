@@ -51,7 +51,7 @@ function displayCityWeather(response) {
   let currentTemp = Math.round(response.data.main.temp);
   document.querySelector("#main-temp").innerHTML = currentTemp;
 
-  let weatherDescription = "Thunderstorm"; //response.data.weather[0].main;
+  let weatherDescription = response.data.weather[0].main;
   document.querySelector("p").innerHTML = weatherDescription;
 
   let feelsLike = Math.round(response.data.main.feels_like);
@@ -99,6 +99,13 @@ function displayCityWeather(response) {
   let mph = document.querySelector(".mph");
   let h3 = document.querySelector("h3");
   let h1 = document.querySelector("h1");
+  let buttons = document.querySelectorAll(".buttons");
+  let card = document.querySelector(".card");
+  let topHalf = document.querySelector(".top-half");
+  let forecast = document.querySelector(".forecast");
+  let dayGroup = document.querySelectorAll(".day");
+  let hlGroup = document.querySelectorAll(".HL");
+  let name = document.querySelector("#name");
 
   function bgImgChange() {
     if (weatherDescription == "Clear") {
@@ -130,6 +137,32 @@ function displayCityWeather(response) {
     } else if (weatherDescription == "Tornado") {
       document.body.style.backgroundImage = "url('../images+/tornado.jpg')";
       audio.setAttribute("src", "../images+/tornado.wav");
+      h3.style.color = "white";
+      h1.style.color = "white";
+      h6.style.color = "wheat";
+      mph.style.color = "#e8630a";
+      forecast.style.color = "white";
+      card.style.borderColor = "#e8630a";
+      topHalf.style.borderColor = "#00bdaa";
+      name.style.color = "white";
+      let description = document.querySelector(".description");
+      description.style.color = "wheat";
+      for (var i = 0; i < li.length; i++) {
+        li[i].style.color = "#00bdaa";
+      }
+      for (var i = 0; i < 2; i++) {
+        percent[i].style.color = "#e8630a";
+        tempClass[i].style.color = "#e8630a";
+      }
+      for (var i = 0; i < 2; i++) {
+        buttons[i].style.backgroundColor = "#e8630a";
+      }
+      for (var i = 0; i < dayGroup.length; i++) {
+        dayGroup[i].style.color = "wheat";
+      }
+      for (var i = 0; i < hlGroup.length; i++) {
+        hlGroup[i].style.color = "#00bdaa";
+      }
     } else if (weatherDescription == "Snow") {
       document.body.style.backgroundImage = "url('../images+/snow2.jpg')";
       audio.setAttribute("src", "../images+/snowsteps.wav");
@@ -137,6 +170,9 @@ function displayCityWeather(response) {
       document.body.style.backgroundImage = "url('../images+/clouds3.jpg')";
     } else {
       document.body.style.backgroundImage = "url('../images+/fog.jpg')";
+      for (var i = 0; i < 2; i++) {
+        buttons[i].style.backgroundColor = "#11468f";
+      }
     }
   }
 

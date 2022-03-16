@@ -34,12 +34,15 @@ ul {
   list-style: none;
   padding: 0;
 }
+a {
+  text-decoration: none;
+}
 #locationButton {
   background-color: transparent;
   box-shadow: 2px 2px 10px #423f3e;
   padding: 4px 8px;
   border-radius: 10px;
-  border-color: #ffb319;
+  border-color: white;
   transition: 250ms ease-in-out;
 }
 #locationButton:hover {
