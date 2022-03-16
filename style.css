@@ -37,9 +37,6 @@ a {
   border-color: white;
   transition: 250ms ease-in-out;
 }
-#locationButton:hover {
-  background-color: #11468f;
-}
 #location-icon {
   color: wheat;
   font-size: 18px;
@@ -53,9 +50,6 @@ a {
   background-color: transparent;
   box-shadow: 3px 3px 5px grey;
   transition: 250ms ease-in-out;
-}
-#searchButton:hover {
-  background-color: #11468f;
 }
 #clickedDegrees {
   text-decoration: none;
@@ -76,7 +70,8 @@ a {
 }
 #card {
   margin: 50px auto;
-  max-width: 600px;
+  max-width: 550px;
+  min-width: 500px;
   border: 5px groove #ffb319;
   border-radius: 10px;
   box-shadow: 7px 7px 5px black;

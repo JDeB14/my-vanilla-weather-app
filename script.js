@@ -70,7 +70,38 @@ function displayCityWeather(response) {
   document.querySelector("#wind").innerHTML = `${windSpeed} MPH`;
 
   function displayWeatherIconAndChanges() {
-    let icon = document.querySelector(".sun");
+    function setDefaultStyling() {
+      h6.setAttribute("class", "color");
+      h3.setAttribute("class", "default-color");
+      h1.setAttribute("class", "default-color");
+      mph.setAttribute("class", "mph");
+      for (var i = 0; i < li.length; i++) {
+        li[i].setAttribute("class", "color");
+      }
+      for (var i = 0; i < 2; i++) {
+        percent[i].setAttribute("class", "percent");
+        tempClass[i].setAttribute("class", "temp");
+      }
+      description.setAttribute("class", "description");
+      card.classList.remove("card");
+      let time = document.querySelector("#time");
+      time.style.color = "wheat";
+      forecast.style.color = "#ffb319";
+      card.style.borderColor = "#ffb319";
+      topHalf.style.borderColor = "wheat";
+      let name = document.querySelector("#name");
+      name.style.color = "#ffb319";
+      for (var i = 0; i < 2; i++) {
+        buttons[i].style.backgroundColor = "transparent";
+      }
+      for (var i = 0; i < dayGroup.length; i++) {
+        dayGroup[i].style.color = "#ffb319";
+      }
+      for (var i = 0; i < hlGroup.length; i++) {
+        hlGroup[i].style.color = "#ffb319";
+      }
+    }
+
     function rainStyling() {
       document.body.style.backgroundImage = "url('../images+/rain.jpg')";
       audio.setAttribute("src", "../images+/rainsound.wav");
@@ -178,32 +209,40 @@ function displayCityWeather(response) {
       icon.innerHTML = "⛅️";
       document.body.style.backgroundImage = "url('../images+/clouds3.jpg')";
       audio.setAttribute("src", "../images+/clearsky.wav");
+      setDefaultStyling();
     } else if (weatherDescription == "Clear") {
       icon.innerHTML = "☀️";
       document.body.style.backgroundImage = "url('../images+/mainbgphoto.jpg')";
       audio.setAttribute("src", "../images+/clearsky.wav");
+      setDefaultStyling();
     } else if (
       weatherDescription == "Rain" ||
       weatherDescription == "Drizzle"
     ) {
       icon.innerHTML = "🌧";
+      setDefaultStyling();
       rainStyling();
     } else if (weatherDescription == "Thunderstorm") {
       icon.innerHTML = "⛈";
+      setDefaultStyling();
       thunderstormStyling();
     } else if (weatherDescription == "Snow") {
       icon.innerHTML = "🌨";
+      setDefaultStyling();
       snowStyling();
     } else if (weatherDescription == "Tornado") {
       icon.innerHTML = "🌪";
+      setDefaultStyling();
       tornadoStyling();
     } else {
       icon.innerHTML = "🌫";
+      setDefaultStyling();
       othersStyling();
     }
   }
   displayWeatherIconAndChanges();
 }
+let icon = document.querySelector(".sun");
 let description = document.querySelector(".description");
 let audio = document.querySelector("#audio");
 let h6 = document.querySelector("h6");
