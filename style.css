@@ -74,13 +74,15 @@ a {
   padding: 20px;
   box-shadow: 3px 3px 5px black;
 }
-.card {
+#card {
   margin: 50px auto;
   max-width: 600px;
-  background: transparent;
   border: 5px groove #ffb319;
   border-radius: 10px;
   box-shadow: 7px 7px 5px black;
+}
+.card {
+  background: #606470;
 }
 .default-color,
 .description {
@@ -168,4 +170,13 @@ a {
 .ffb {
   color: #ffb319;
   font-size: 18px;
+}
+.e8 {
+  color: #e8630a;
+}
+.bdaa {
+  color: #00bdaa;
+}
+.white {
+  color: white;
 }

@@ -71,20 +71,7 @@ function displayCityWeather(response) {
 
   function displayWeatherIconAndChanges() {
     let icon = document.querySelector(".sun");
-
-    if (weatherDescription == "Clouds") {
-      icon.innerHTML = "⛅️";
-      document.body.style.backgroundImage = "url('../images+/clouds3.jpg')";
-      audio.setAttribute("src", "../images+/clearsky.wav");
-    } else if (weatherDescription == "Clear") {
-      icon.innerHTML = "☀️";
-      document.body.style.backgroundImage = "url('../images+/mainbgphoto.jpg')";
-      audio.setAttribute("src", "../images+/clearsky.wav");
-    } else if (
-      weatherDescription == "Rain" ||
-      weatherDescription == "Drizzle"
-    ) {
-      icon.innerHTML = "🌧";
+    function rainStyling() {
       document.body.style.backgroundImage = "url('../images+/rain.jpg')";
       audio.setAttribute("src", "../images+/rainsound.wav");
       h6.classList.remove("color");
@@ -107,8 +94,8 @@ function displayCityWeather(response) {
         percent[i].classList.add("e3");
         tempClass[i].classList.add("e3");
       }
-    } else if (weatherDescription == "Thunderstorm") {
-      icon.innerHTML = "⛈";
+    }
+    function thunderstormStyling() {
       document.body.style.backgroundImage = "url('../images+/storm1.jpg')";
       audio.setAttribute("src", "../images+/thunderstorm.wav");
       h6.classList.remove("color");
@@ -131,32 +118,41 @@ function displayCityWeather(response) {
         percent[i].classList.add("e3");
         tempClass[i].classList.add("e3");
       }
-    } else if (weatherDescription == "Snow") {
-      icon.innerHTML = "🌨";
+    }
+
+    function snowStyling() {
       document.body.style.backgroundImage = "url('../images+/snow2.jpg')";
       audio.setAttribute("src", "../images+/snowsteps.wav");
-    } else if (weatherDescription == "Tornado") {
-      icon.innerHTML = "🌪";
+      card.classList.add("card");
+    }
+
+    function tornadoStyling() {
       document.body.style.backgroundImage = "url('../images+/tornado.jpg')";
       audio.setAttribute("src", "../images+/tornado.wav");
-      h3.style.color = "white";
-      h1.style.color = "white";
-      h6.style.color = "wheat";
-      mph.style.color = "#e8630a";
+      h6.classList.remove("color");
+      h6.classList.add("wheat");
+      h3.classList.remove("default-color");
+      h3.classList.add("white");
+      h1.classList.remove("default-color");
+      h1.classList.add("white");
+      mph.classList.remove("mph");
+      mph.classList.add("e8");
+      for (var i = 0; i < 2; i++) {
+        percent[i].classList.remove("percent");
+        tempClass[i].classList.remove("temp");
+        percent[i].classList.add("e8");
+        tempClass[i].classList.add("e8");
+      }
+      for (var i = 0; i < li.length; i++) {
+        li[i].classList.remove("color");
+        li[i].classList.add("bdaa");
+      }
       forecast.style.color = "white";
       card.style.borderColor = "#e8630a";
       topHalf.style.borderColor = "#00bdaa";
       let name = document.querySelector("#name");
       name.style.color = "white";
-
       description.style.color = "wheat";
-      for (var i = 0; i < li.length; i++) {
-        li[i].style.color = "#00bdaa";
-      }
-      for (var i = 0; i < 2; i++) {
-        percent[i].style.color = "#e8630a";
-        tempClass[i].style.color = "#e8630a";
-      }
       for (var i = 0; i < 2; i++) {
         buttons[i].style.backgroundColor = "#e8630a";
       }
@@ -166,8 +162,9 @@ function displayCityWeather(response) {
       for (var i = 0; i < hlGroup.length; i++) {
         hlGroup[i].style.color = "#00bdaa";
       }
-    } else {
-      icon.innerHTML = "🌫";
+    }
+
+    function othersStyling() {
       audio.setAttribute("src", "../images+/clearsky.wav");
       document.body.style.backgroundImage = "url('../images+/fog.jpg')";
       for (var i = 0; i < 2; i++) {
@@ -175,6 +172,34 @@ function displayCityWeather(response) {
         let time = document.querySelector("#time");
         time.style.color = "#11468f";
       }
+    }
+
+    if (weatherDescription == "Clouds") {
+      icon.innerHTML = "⛅️";
+      document.body.style.backgroundImage = "url('../images+/clouds3.jpg')";
+      audio.setAttribute("src", "../images+/clearsky.wav");
+    } else if (weatherDescription == "Clear") {
+      icon.innerHTML = "☀️";
+      document.body.style.backgroundImage = "url('../images+/mainbgphoto.jpg')";
+      audio.setAttribute("src", "../images+/clearsky.wav");
+    } else if (
+      weatherDescription == "Rain" ||
+      weatherDescription == "Drizzle"
+    ) {
+      icon.innerHTML = "🌧";
+      rainStyling();
+    } else if (weatherDescription == "Thunderstorm") {
+      icon.innerHTML = "⛈";
+      thunderstormStyling();
+    } else if (weatherDescription == "Snow") {
+      icon.innerHTML = "🌨";
+      snowStyling();
+    } else if (weatherDescription == "Tornado") {
+      icon.innerHTML = "🌪";
+      tornadoStyling();
+    } else {
+      icon.innerHTML = "🌫";
+      othersStyling();
     }
   }
   displayWeatherIconAndChanges();
@@ -189,7 +214,7 @@ let mph = document.querySelector(".mph");
 let h3 = document.querySelector("h3");
 let h1 = document.querySelector("h1");
 let buttons = document.querySelectorAll(".buttons");
-let card = document.querySelector(".card");
+let card = document.querySelector("#card");
 let topHalf = document.querySelector(".top-half");
 let forecast = document.querySelector(".forecast");
 let dayGroup = document.querySelectorAll(".day");
