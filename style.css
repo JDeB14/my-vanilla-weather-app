@@ -11,25 +11,17 @@ p {
   text-align: center;
   position: relative;
   bottom: 20px;
-  color: #11468f;
   font-size: 20px;
   font-weight: 600;
 }
-h1,
-h3 {
-  color: #11468f;
-}
+
 h1 {
   font-size: 70px;
   text-align: center;
   position: relative;
   bottom: 25px;
 }
-h6,
-li {
-  color: #72147e;
-  font-size: 18px;
-}
+
 ul {
   list-style: none;
   padding: 0;
@@ -90,12 +82,21 @@ a {
   border-radius: 10px;
   box-shadow: 7px 7px 5px black;
 }
+.default-color,
+.description {
+  color: #11468f;
+}
 .city-date {
   margin-top: 30px;
 }
 .sun {
   text-align: center;
   font-size: 70px;
+}
+
+.color {
+  color: #72147e;
+  font-size: 18px;
 }
 .mph,
 .percent,
@@ -155,4 +156,16 @@ a {
 }
 #name {
   color: #ffb319;
+}
+
+.e3 {
+  color: #e3e3e3;
+}
+.wheat {
+  color: wheat;
+  font-size: 18px;
+}
+.ffb {
+  color: #ffb319;
+  font-size: 18px;
 }
