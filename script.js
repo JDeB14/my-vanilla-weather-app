@@ -75,6 +75,8 @@ function displayCityWeather(response) {
       h3.setAttribute("class", "default-color");
       h1.setAttribute("class", "default-color");
       mph.setAttribute("class", "mph");
+      description.setAttribute("class", "description");
+      card.classList.remove("card");
       for (var i = 0; i < li.length; i++) {
         li[i].setAttribute("class", "color");
       }
@@ -82,8 +84,7 @@ function displayCityWeather(response) {
         percent[i].setAttribute("class", "percent");
         tempClass[i].setAttribute("class", "temp");
       }
-      description.setAttribute("class", "description");
-      card.classList.remove("card");
+
       let time = document.querySelector("#time");
       time.style.color = "wheat";
       forecast.style.color = "#ffb319";
@@ -105,49 +106,33 @@ function displayCityWeather(response) {
     function rainStyling() {
       document.body.style.backgroundImage = "url('../images+/rain.jpg')";
       audio.setAttribute("src", "../images+/rainsound.wav");
-      h6.classList.remove("color");
-      h6.classList.add("wheat");
-      h3.classList.remove("default-color");
-      h3.classList.add("e3");
-      h1.classList.remove("default-color");
-      h1.classList.add("e3");
-      mph.classList.remove("mph");
-      mph.classList.add("e3");
-      description.classList.remove("description");
-      description.classList.add("wheat");
+      h6.setAttribute("class", "wheat");
+      h3.setAttribute("class", "e3");
+      h1.setAttribute("class", "e3");
+      mph.setAttribute("class", "e3");
+      description.setAttribute("class", "wheat");
       for (var i = 0; i < li.length; i++) {
-        li[i].classList.remove("color");
-        li[i].classList.add("ffb");
+        li[i].setAttribute("class", "ffb");
       }
       for (var i = 0; i < 2; i++) {
-        percent[i].classList.remove("percent");
-        tempClass[i].classList.remove("temp");
-        percent[i].classList.add("e3");
-        tempClass[i].classList.add("e3");
+        percent[i].setAttribute("class", "e3");
+        tempClass[i].setAttribute("class", "e3");
       }
     }
     function thunderstormStyling() {
       document.body.style.backgroundImage = "url('../images+/storm1.jpg')";
       audio.setAttribute("src", "../images+/thunderstorm.wav");
-      h6.classList.remove("color");
-      h6.classList.add("wheat");
-      h3.classList.remove("default-color");
-      h3.classList.add("e3");
-      h1.classList.remove("default-color");
-      h1.classList.add("e3");
-      mph.classList.remove("mph");
-      mph.classList.add("e3");
-      description.classList.remove("description");
-      description.classList.add("wheat");
+      h6.setAttribute("class", "wheat");
+      h3.setAttribute("class", "e3");
+      h1.setAttribute("class", "e3");
+      mph.setAttribute("class", "e3");
+      description.setAttribute("class", "wheat");
       for (var i = 0; i < li.length; i++) {
-        li[i].classList.remove("color");
-        li[i].classList.add("ffb");
+        li[i].setAttribute("class", "ffb");
       }
       for (var i = 0; i < 2; i++) {
-        percent[i].classList.remove("percent");
-        tempClass[i].classList.remove("temp");
-        percent[i].classList.add("e3");
-        tempClass[i].classList.add("e3");
+        percent[i].setAttribute("class", "e3");
+        tempClass[i].setAttribute("class", "e3");
       }
     }
 
@@ -160,23 +145,16 @@ function displayCityWeather(response) {
     function tornadoStyling() {
       document.body.style.backgroundImage = "url('../images+/tornado.jpg')";
       audio.setAttribute("src", "../images+/tornado.wav");
-      h6.classList.remove("color");
-      h6.classList.add("wheat");
-      h3.classList.remove("default-color");
-      h3.classList.add("white");
-      h1.classList.remove("default-color");
-      h1.classList.add("white");
-      mph.classList.remove("mph");
-      mph.classList.add("e8");
+      h6.setAttribute("class", "wheat");
+      h3.setAttribute("class", "white");
+      h1.setAttribute("class", "white");
+      mph.setAttribute("class", "e8");
       for (var i = 0; i < 2; i++) {
-        percent[i].classList.remove("percent");
-        tempClass[i].classList.remove("temp");
-        percent[i].classList.add("e8");
-        tempClass[i].classList.add("e8");
+        percent[i].setAttribute("class", "e8");
+        tempClass[i].setAttribute("class", "e8");
       }
       for (var i = 0; i < li.length; i++) {
-        li[i].classList.remove("color");
-        li[i].classList.add("bdaa");
+        li[i].setAttribute("class", "bdaa");
       }
       forecast.style.color = "white";
       card.style.borderColor = "#e8630a";
