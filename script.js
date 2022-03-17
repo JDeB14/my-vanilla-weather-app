@@ -44,6 +44,23 @@ function search(city) {
   axios.get(weatherApiUrl).then(displayCityWeather);
 }
 
+let icon = document.querySelector(".sun");
+let description = document.querySelector(".description");
+let audio = document.querySelector("#audio");
+let h6 = document.querySelector("h6");
+let li = document.querySelectorAll("li");
+let percent = document.querySelectorAll(".percent");
+let tempClass = document.querySelectorAll(".temp");
+let mph = document.querySelector(".mph");
+let h3 = document.querySelector("h3");
+let h1 = document.querySelector("h1");
+let buttons = document.querySelectorAll(".buttons");
+let card = document.querySelector("#card");
+let topHalf = document.querySelector(".top-half");
+let forecast = document.querySelector(".forecast");
+let dayGroup = document.querySelectorAll(".day");
+let hlGroup = document.querySelectorAll(".HL");
+
 function displayCityWeather(response) {
   let cityName = response.data.name;
   document.querySelector("#searched-city").innerHTML = cityName;
@@ -220,22 +237,6 @@ function displayCityWeather(response) {
   }
   displayWeatherIconAndChanges();
 }
-let icon = document.querySelector(".sun");
-let description = document.querySelector(".description");
-let audio = document.querySelector("#audio");
-let h6 = document.querySelector("h6");
-let li = document.querySelectorAll("li");
-let percent = document.querySelectorAll(".percent");
-let tempClass = document.querySelectorAll(".temp");
-let mph = document.querySelector(".mph");
-let h3 = document.querySelector("h3");
-let h1 = document.querySelector("h1");
-let buttons = document.querySelectorAll(".buttons");
-let card = document.querySelector("#card");
-let topHalf = document.querySelector(".top-half");
-let forecast = document.querySelector(".forecast");
-let dayGroup = document.querySelectorAll(".day");
-let hlGroup = document.querySelectorAll(".HL");
 
 //Navigator Location Button
 let locationButton = document.querySelector("#locationButton");
