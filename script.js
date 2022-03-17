@@ -255,3 +255,24 @@ function handlePosition(position) {
   let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
   axios.get(weatherApiUrl).then(displayCityWeather);
 }
+
+//Fahrenheit to Celsius
+function convertTemp() {
+  let mainTemp = document.querySelector("#main-temp");
+  let degrees = document.querySelector("#degrees");
+  let clickedDegrees = document.querySelector("#clickedDegrees");
+
+  if (clickedDegrees.innerHTML == "°C") {
+    let celsius = Math.round((mainTemp.innerHTML - 32) * 0.5556);
+    mainTemp.innerHTML = celsius;
+    degrees.innerHTML = clickedDegrees.innerHTML;
+    clickedDegrees.innerHTML = `°F`;
+  } else if (clickedDegrees.innerHTML == "°F") {
+    let fahrenheit = Math.round((mainTemp.innerHTML * 9) / 5 + 32);
+    mainTemp.innerHTML = fahrenheit;
+    degrees.innerHTML = clickedDegrees.innerHTML;
+    clickedDegrees.innerHTML = `°C`;
+  }
+}
+let clickedDegrees = document.querySelector("#clickedDegrees");
+clickedDegrees.addEventListener("click", convertTemp);
