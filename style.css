@@ -32,6 +32,10 @@ ul {
   font-size: 19px;
 }
 
+a {
+  text-decoration: none;
+}
+
 #locationButton {
   background-color: transparent;
   box-shadow: 2px 2px 10px #423f3e;
@@ -54,16 +58,7 @@ ul {
   box-shadow: 3px 3px 5px grey;
   transition: 250ms ease-in-out;
 }
-#clickedDegrees {
-  color: darkgray;
-  font-size: 20px;
-  position: relative;
-  bottom: 38px;
-}
-#clickedDegrees:hover {
-  color: black;
-  cursor: pointer;
-}
+
 .top-half {
   border: 2px groove wheat;
   border-radius: 20px;
