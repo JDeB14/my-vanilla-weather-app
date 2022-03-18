@@ -62,6 +62,7 @@ let dayGroup = document.querySelectorAll(".day");
 let hlGroup = document.querySelectorAll(".HL");
 
 function displayCityWeather(response) {
+  console.log(response.data);
   let cityName = response.data.name;
   document.querySelector("#searched-city").innerHTML = cityName;
 
@@ -236,7 +237,32 @@ function displayCityWeather(response) {
     }
   }
   displayWeatherIconAndChanges();
+  getForecastData(response.data.coord);
 }
+
+function getForecastData(coordinates) {
+  console.log(coordinates);
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#daily-forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col future">
+              <div class="day">${day}</div>
+              <div class="emoji">🌧</div>
+              <div class="HL">66° | 38°</div> 
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
 
 //Navigator Location Button
 let locationButton = document.querySelector("#locationButton");
