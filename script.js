@@ -50,7 +50,7 @@ let audio = document.querySelector("#audio");
 let h6 = document.querySelector("h6");
 let li = document.querySelectorAll("li");
 let percent = document.querySelectorAll(".percent");
-let tempClass = document.querySelectorAll(".temp");
+let pressure = document.querySelector(".pressure");
 let mph = document.querySelector(".mph");
 let h3 = document.querySelector("h3");
 let h1 = document.querySelector("h1");
@@ -74,11 +74,8 @@ function displayCityWeather(response) {
   let feelsLike = Math.round(response.data.main.feels_like);
   document.querySelector("#feels-like").innerHTML = `${feelsLike}°`;
 
-  let tempMax = Math.round(response.data.main.temp_max);
-  document.querySelector("#currentHigh").innerHTML = `${tempMax}°`;
-
-  let tempMin = Math.round(response.data.main.temp_min);
-  document.querySelector("#currentLow").innerHTML = `${tempMin}°`;
+  let currentPressure = response.data.main.pressure;
+  document.querySelector("#pressure").innerHTML = `${currentPressure} hPa`;
 
   let humidity = response.data.main.humidity;
   document.querySelector("#humidity-percentage").innerHTML = `${humidity}%`;
@@ -94,12 +91,13 @@ function displayCityWeather(response) {
       mph.setAttribute("class", "mph");
       description.setAttribute("class", "description");
       card.classList.remove("card");
+      pressure.setAttribute("class", "pressure");
       for (var i = 0; i < li.length; i++) {
         li[i].setAttribute("class", "color");
       }
       for (var i = 0; i < 2; i++) {
         percent[i].setAttribute("class", "percent");
-        tempClass[i].setAttribute("class", "temp");
+        buttons[i].style.backgroundColor = "transparent";
       }
 
       let time = document.querySelector("#time");
@@ -109,9 +107,7 @@ function displayCityWeather(response) {
       topHalf.style.borderColor = "wheat";
       let name = document.querySelector("#name");
       name.style.color = "#ffb319";
-      for (var i = 0; i < 2; i++) {
-        buttons[i].style.backgroundColor = "transparent";
-      }
+
       for (var i = 0; i < dayGroup.length; i++) {
         dayGroup[i].style.color = "#ffb319";
       }
@@ -128,12 +124,12 @@ function displayCityWeather(response) {
       h1.setAttribute("class", "e3");
       mph.setAttribute("class", "e3");
       description.setAttribute("class", "wheat");
+      pressure.setAttribute("class", "e3");
       for (var i = 0; i < li.length; i++) {
         li[i].setAttribute("class", "ffb");
       }
       for (var i = 0; i < 2; i++) {
         percent[i].setAttribute("class", "e3");
-        tempClass[i].setAttribute("class", "e3");
       }
     }
     function thunderstormStyling() {
@@ -144,12 +140,12 @@ function displayCityWeather(response) {
       h1.setAttribute("class", "e3");
       mph.setAttribute("class", "e3");
       description.setAttribute("class", "wheat");
+      pressure.setAttribute("class", "e3");
       for (var i = 0; i < li.length; i++) {
         li[i].setAttribute("class", "ffb");
       }
       for (var i = 0; i < 2; i++) {
         percent[i].setAttribute("class", "e3");
-        tempClass[i].setAttribute("class", "e3");
       }
     }
 
@@ -166,9 +162,9 @@ function displayCityWeather(response) {
       h3.setAttribute("class", "white");
       h1.setAttribute("class", "white");
       mph.setAttribute("class", "e8");
+      pressure.setAttribute("class", "e8");
       for (var i = 0; i < 2; i++) {
         percent[i].setAttribute("class", "e8");
-        tempClass[i].setAttribute("class", "e8");
       }
       for (var i = 0; i < li.length; i++) {
         li[i].setAttribute("class", "bdaa");

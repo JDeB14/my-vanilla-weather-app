@@ -27,7 +27,7 @@
   </head>
   <body>
     <div class="container">
-      <audio loop id="audio">
+      <audio autoplay loop id="audio">
         <source src="" type="audio/wav" />
       </audio>
       <div id="card">
@@ -88,15 +88,14 @@
               <div class="col">
                 <ul class="text-end">
                   <li class="color">
-                    H: <span id="currentHigh" class="temp"></span> L:
-                    <span id="currentLow" class="temp"></span>
-                  </li>
-                  <li class="color">
-                    Wind:
+                       Wind:
                     <span class="mph">
                       <span id="wind"></span>
                       <i class="fa-solid fa-wind"></i
                     ></span>
+                  </li>
+                  <li class="color">
+                   Pressure: <span id="pressure" class="pressure"></span>
                   </li>
                 </ul>
               </div>
