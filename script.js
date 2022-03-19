@@ -238,7 +238,7 @@ function displayCityWeather(response) {
 //5-Day Forecast
 function getForecastData(coordinates) {
   let apiKey = "10cecfc6ca6c9a59ad2246de5dec6a11";
-  let forecastApiUrl = `https:api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current&appid=${apiKey}&units=imperial`;
+  let forecastApiUrl = `https:api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(forecastApiUrl).then(displayForecast);
 }
 
