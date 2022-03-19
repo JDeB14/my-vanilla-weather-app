@@ -62,7 +62,6 @@ let dayGroup = document.querySelectorAll(".day");
 let hlGroup = document.querySelectorAll(".HL");
 
 function displayCityWeather(response) {
-  console.log(response.data);
   let cityName = response.data.name;
   document.querySelector("#searched-city").innerHTML = cityName;
 
@@ -240,29 +239,62 @@ function displayCityWeather(response) {
   getForecastData(response.data.coord);
 }
 
+//5-Day Forecast
 function getForecastData(coordinates) {
-  console.log(coordinates);
+  let apiKey = "10cecfc6ca6c9a59ad2246de5dec6a11";
+  let forecastApiUrl = `https:api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current&appid=${apiKey}&units=imperial`;
+  axios.get(forecastApiUrl).then(displayForecast);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  let dailyForecast = response.data.daily;
   let forecastElement = document.querySelector("#daily-forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-
+  let icon = "";
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col future">
-              <div class="day">${day}</div>
-              <div class="emoji">🌧</div>
-              <div class="HL">66° | 38°</div> 
+  dailyForecast.forEach(function (forecastData, index) {
+    if (index < 5) {
+      let forecastDescription = forecastData.weather[0].main;
+      if (forecastDescription == "Clear") {
+        icon = "☀️";
+      } else if (forecastDescription == "Clouds") {
+        icon = "⛅️";
+      } else if (
+        forecastDescription == "Rain" ||
+        forecastDescription == "Drizzle"
+      ) {
+        icon = "🌧";
+      } else if (forecastDescription == "Thunderstorm") {
+        icon = "⛈";
+      } else if (forecastDescription == "Snow") {
+        icon = "🌨";
+      } else if (forecastDescription == "Tornado") {
+        icon = "🌪";
+      } else {
+        icon = "🌫";
+      }
+      forecastHTML =
+        forecastHTML +
+        `<div class="col future">
+              <div class="day">${formatDay(forecastData.dt)}</div>
+              <div class="emoji">${icon}</div>
+              <div><span class="H">${Math.round(
+                forecastData.temp.max
+              )}°</span><span class="L"> ${Math.round(
+          forecastData.temp.min
+        )}°</span></div> 
           </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-displayForecast();
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 
 //Navigator Location Button
 let locationButton = document.querySelector("#locationButton");

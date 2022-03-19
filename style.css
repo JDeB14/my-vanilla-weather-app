@@ -95,15 +95,21 @@ a {
 .temp {
   color: #11468f;
 }
+
 .forecast {
   text-align: center;
   text-decoration: underline 3px;
   color: #ffb319;
 }
 .day,
-.HL {
+.H {
   color: #ffb319;
   font-size: 20px;
+}
+.L {
+  color: #ffb319;
+  font-size: 20px;
+  opacity: 0.7;
 }
 .emoji {
   font-size: 40px;
